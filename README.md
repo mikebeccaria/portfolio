@@ -1,4 +1,4 @@
-# portfolio
+# Portfolio
 This portfolio is a compilation of notebooks and scripts I created for data analysis and exploration.
 
 # SQL
