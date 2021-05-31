@@ -1,7 +1,7 @@
 /****** Exploring the "Pregnancies, Births and Abortions in the United States: National and State Trends by Age" data set found here https://osf.io/ndau2/  ******/
+--Question: Which states had higher pregnancy rates for women under the age of 20 than the US average for years 2000-2017?
+
 --loaded the csv data set into SQL
-
-
 
 use Pregnancies_Abortions_US
 
@@ -16,10 +16,7 @@ select [population1544],[total_population] from NSPP
 --numbers check out checks out - drop the column
 ALTER TABLE [dbo].[NSPP] DROP COLUMN [total_population]
 
-
---Which states had higher pregnancy rates for women under the age of 20 than the US average for years 2000-2017?
-
---step 1: What are the averages for pregnancy rates for those years?
+--STEP 1: What are the averages for pregnancy rates for those years?
 select [year],[state], dbo.NSPP.pregncyratelt20
 from NSPP
 where [year] in 
@@ -37,8 +34,7 @@ order by [year] desc
 
 --This is fine, but it needs to be more like a pivot table rather than a series
 
-
---Step 2 - Set the data with the year as column headers and the state as rows
+--STEP 2 - Set the data with the year as column headers and the state as rows
 SELECT [state],[2005],[2006],[2007],[2008],[2009],[2010],[2011],[2012],[2013],[2014],[2015],[2016],[2017]
 FROM
 (
@@ -63,8 +59,7 @@ order by state
 
 --better - on our way
 
-
---step 3 - Calculate the difference in values between that table and the values for the US - let's start with one column
+--STEP 3 - Calculate the difference in values between that table and the values for the US - let's start with one column
 --I will make a temporary table that includes the US values only so we can run comparisons against that for each state
 	drop table if exists us_pregnancy_values_temp
 	create table us_pregnancy_values_temp ([state] nvarchar(255), [year] int, [pregncyratelt20] float, [pregncyratelt20diff] decimal(8,2))
@@ -84,8 +79,7 @@ order by state
 --US	1976	104.4	NULL
 --US	1977	107.9	NULL
 
-
---step 4 - after thinking about this a bit, I need to create some temp table variables to cycle through and add values to our table on the differences. Computed columns won't work because you can't compute differences between rows (AK and US for example). I need to create new column data
+--STEP 4 - after thinking about this a bit, I need to create some temp table variables to cycle through and add values to our table on the differences. Computed columns won't work because you can't compute differences between rows (AK and US for example). I need to create new column data
 
 --create temp table variables for state and years so I can cycle through them
 DECLARE @tmp_states TABLE (RowID int not null primary key identity(1,1), [state] nvarchar(255))
@@ -108,7 +102,6 @@ insert into @tmp_years
 --1975
 --1976
 --1977
-
 	
 --create year and state counts
 DECLARE @yearcount int = (select COUNT([year]) from @tmp_years)
@@ -153,8 +146,7 @@ END
 --AL	1988	114.3	-0.80
 --AR	1988	119.5	4.40
 
-
---step 5 - Create the pivot table from the new values by year and order the values by the 2017 data
+--STEP 5 - Create the pivot table from the new values by year and order the values by the 2017 data
 SELECT [state],[2005],[2006],[2007],[2008],[2009],[2010],[2011],[2012],[2013],[2014],[2015],[2016],[2017]
 FROM
 (
