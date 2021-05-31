@@ -1,4 +1,5 @@
-/****** Exploring the "Pregnancies, Births and Abortions in the United States: National and State Trends by Age" data set found here https://osf.io/ndau2/  ******/
+/****** Exploring the "Pregnancies, Births and Abortions in the United States: National and State Trends by Age" data set found here https://osf.io/ndau2/  
+There are better tools (python/pandas, Excel, PowerBI, Tableau) to do this kind of analysis, but wanted to practice using SQL as a data source******/
 --Question: Which states had higher pregnancy rates for women under the age of 20 than the US average for years 2000-2017?
 
 --loaded the csv data set into SQL
