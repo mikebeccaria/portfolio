@@ -1,5 +1,4 @@
-/****** Exploring the "Pregnancies, Births and Abortions in the United States: National and State Trends by Age" data set found here https://osf.io/ndau2/  
-There are better tools (python/pandas, Excel, PowerBI, Tableau) to do this kind of analysis, but wanted to practice using SQL as a data source******/
+/****** Exploring the "Pregnancies, Births and Abortions in the United States: National and State Trends by Age" data set found here https://osf.io/ndau2/  ******/
 --Question: Which states had higher pregnancy rates for women under the age of 20 than the US average for years 2000-2017?
 
 --loaded the csv data set into SQL
@@ -165,8 +164,6 @@ PIVOT
 		FOR [year] IN ([2005],[2006],[2007],[2008],[2009],[2010],[2011],[2012],[2013],[2014],[2015],[2016],[2017])
 	) AS Pvt
 order by [2017] desc
-
---Washington DC had the highest rate of pregnancies under the age of 20, 17 points above the national average in 2017. However, it looks like it has been lowering that difference over the last 13 years.
 --state	2005	2006	2007	2008	2009	2010	2011	2012	2013	2014	2015	2016	2017
 --DC	44.70	44.50	35.70	46.70	38.20	34.10	28.90	21.90	25.60	19.70	11.80	9.40	17.00
 --AR	11.30	14.00	13.30	14.60	16.00	15.40	15.90	13.80	14.80	13.30	14.20	13.00	13.20
