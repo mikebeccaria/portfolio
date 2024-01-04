@@ -1,6 +1,7 @@
 --Our SUD Counselors needed a way to be alerted about any needs that the client sitting in front of them had an also deliver a quick way for them to meet the need without requiring too many clicks
 --Created a SQL virtual view that added to our EHR Individual Therapy Note form -- Only client's whose opened chart matches the people_id will display the alert.
---This SQL view supports alerts towards a measure the agency is required to report on for our CCBHC SAMHSA Grant. OP Clients under age 18 who do not have an existing Alcohol Use Diagnosis based on ICD 10 codes
+--This SQL view supports alerts towards a measure the agency is required to report on for our CCBHC SAMHSA Grant. Filters to existing Outpatient Clients under the age of 18 who do not have an existing Alcohol Use Diagnosis 
+--based on ICD 10 codes and have not had an CCBHC ASC Alcohol Use Assessment in the last year.
 
 
 -- Skills Used:  Select, Where, CTE, Group BY, Joins, concatonation
