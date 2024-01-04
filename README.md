@@ -1,7 +1,10 @@
 # Portfolio
-This portfolio is a compilation of notebooks and scripts I created for data analysis and exploration.
+This portfolio is a compilation of notebooks and scripts I created demonstrating various skills in data analysis and exploration.
 
 ## SQL
+**[SQL View for Healtcare Client Alerts](https://github.com/mikebeccaria/portfolio/blob/main/client_alerts.sql)**:
+This project created a base SQL view to support timely relevant alerts to be added to client charts in my company's EHR.
+
 **[AnAge Database of Animal Ageing and Longevity](https://github.com/mikebeccaria/portfolio/blob/main/Anage.sql)**:
 This project explores the data of the Database of animal aging and logevity found here: https://genomics.senescence.info/species/index.html
 I imported the data into a SQL database and made a few discoveries
